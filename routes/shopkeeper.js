@@ -3,6 +3,8 @@ const { check, validationResult} = require("express-validator/check");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
+const authshopkeeper = require("../middleware/authshopkeeper");
+
 
 const Shopkeeper = require("../model/Shopkeeper");
 
@@ -162,7 +164,17 @@ router.post("/list", async (req, res) => {
     } catch(err) {
         res.status(400).json({ message: err.message})
     }
-})
+});
+
+router.get("/me", authshopkeeper, async (req, res) => {
+    try {
+      // request.user is getting fetched from Middleware after token authentication
+      const user = await Shopkeeper.findById(req.user.id);
+      res.json(shopkeeper);
+    } catch (e) {
+      res.send({ message: "Error in Fetching user" });
+    }
+  });
         
 
 module.exports = router;
