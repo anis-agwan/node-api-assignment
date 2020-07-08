@@ -28,3 +28,9 @@ npm install
 |package.json: Dependencies and scripts
 |package-lock.json
 ```
+
+3. Connect to the Mongo database of your own
+```
+db.js
+     |-const MONGOURI = "mongodb+srv://{username}:{password}@cluster0.zyoqm.mongodb.net/test";
+```
