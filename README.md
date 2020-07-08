@@ -51,6 +51,7 @@ USER
 http://localhost:4000/user/signup
 body: 
 { 
+"username": "<username>
 "email" : "<your-email>",
 "password": "<your-password>"
 }
@@ -60,6 +61,32 @@ http://localhost:4000/vendor/signup
 body:
 { 
 "mobile" : "<mobile>",
+"email" : "<your-email>",
 "password": "<your-password>"
 }
+```
+
+5.3: Login User and Vendor:
+```
+USER
+http://localhost:4000/user/login
+body: 
+{ 
+"email" : "<your-email>",
+"password": "<your-password>"
+}
+
+VENDOR
+http://localhost:4000/vendor/login
+body:
+{ 
+"mobile" : "<mobile>",
+"password": "<your-password>"
+}
+```
+
+5.4 GET the product lists of Vendor:
+```
+VENDOR
+http://localhost:4000/vendor/list
 ```
