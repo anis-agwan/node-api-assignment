@@ -34,3 +34,32 @@ npm install
 db.js
      |-const MONGOURI = "mongodb+srv://{username}:{password}@cluster0.zyoqm.mongodb.net/test";
 ```
+4. Start the server
+```
+node index.js
+```
+5. Test the API on Postman or similar applications.
+
+5.1: Check if API is working
+```
+http://localhost:4000/
+response: {message: API working}
+```
+5.2: Sign up User and Vendor:
+```
+USER
+http://localhost:4000/user/signup
+body: 
+{ 
+"email" : "<your-email>",
+"password": "<your-password>"
+}
+
+VENDOR
+http://localhost:4000/vendor/signup
+body:
+{ 
+"mobile" : "<mobile>",
+"password": "<your-password>"
+}
+```
