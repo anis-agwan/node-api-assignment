@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const UserSchema = mongoose.Schema({
   username: {
     type: String,
-    min: [10, 'Number should be 10 digits'],
     required: true
   },
   email: {
